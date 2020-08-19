@@ -5,4 +5,4 @@ opencv_python==4.1.1.26
 streamlit==0.64.0
 torchvision==0.7.0
 pandas==0.25.1
-skimage==0.0
+scikit-image==0.0
