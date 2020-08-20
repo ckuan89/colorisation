@@ -63,7 +63,7 @@ def main():
             # close file
             out.close()
         
-            bw_one("image/temp.jpg",img_size=512)
+            bw_one("image/temp.jpg",img_size=256)
             st.image("image/temp.jpg",width=512)
 
         start_analyse_file = st.button('Analyse uploaded file')
@@ -72,7 +72,7 @@ def main():
             learn_gen=create_learner(path='',file='export_5.pkl')
             predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=512)
     else:
-        bw_one("test_img/"+example_dic[example],img_size=512)
+        bw_one("test_img/"+example_dic[example],img_size=256)
         st.image("test_img/"+example_dic[example],width=512)
         start_analyse_file = st.button('Analyse example')
         if start_analyse_file== True:
