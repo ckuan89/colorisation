@@ -81,8 +81,8 @@ def main():
             predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=512)
 
 @st.cache(allow_output_mutation=True)
-def create_learner(path='model',file='export_3.pkl'):
-    learn_gen=load_learner(path='model',file='export_3.pkl')
+def create_learner(path,file):
+    learn_gen=load_learner(path,file)
     return learn_gen
 
 #@st.cache
