@@ -80,7 +80,7 @@ def main():
             learn_gen=create_learner(path='',file='export_5.pkl')
             predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=512)
 
-@st.cache(allow_output_mutation=True)
+st.cache(allow_output_mutation=True)
 def create_learner(path,file):
     learn_gen=load_learner(path,file)
     return learn_gen
