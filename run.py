@@ -71,7 +71,7 @@ def main():
 
         start_analyse_file = st.button('Analyse uploaded file')
         if start_analyse_file== True:
-            
+            gc.collect()
             learn_gen=create_learner(path='',file='export_5.pkl')
             predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=512)
     else:
@@ -81,7 +81,7 @@ def main():
         
         start_analyse_file = st.button('Analyse example')
         if start_analyse_file== True:
-            
+            gc.collect()
             learn_gen=create_learner(path='',file='export_5.pkl')
             predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=512)
 
