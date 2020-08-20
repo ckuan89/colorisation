@@ -36,6 +36,7 @@ def main():
     for filename in EXTERNAL_DEPENDENCIES.keys():
         download_file(filename)
     st.title("Black&White Photos Colorisation")
+    
     example=st.selectbox('Try examples:',['I wish to upload my own photo',
     'Broadway at the United States Hotel, Saratoga Springs, N.Y.',
     'Nat. Am. Ballet, 8/20/24',
@@ -48,6 +49,7 @@ def main():
     'Bing Miller, of the Philadelphia Athletics, tagged out at home plate by Washington Nationals catcher "Muddy" Ruel during baseball game',
     'Buying Easter flowers, Union Sq. [New York]'])
 
+    
     if example == 'I wish to upload my own photo':
         st.set_option('deprecation.showfileUploaderEncoding', False)
         uploaded_file = st.file_uploader(
@@ -62,9 +64,10 @@ def main():
 
             # close file
             out.close()
-        
-            bw_one("image/temp.jpg",img_size=256)
+            resize_size = st.slider('resize to ?', 256, 1024, 256, 1)
+            bw_one("image/temp.jpg",img_size=resize_size)
             st.image("image/temp.jpg",width=512)
+            
 
         start_analyse_file = st.button('Analyse uploaded file')
         if start_analyse_file== True:
@@ -72,8 +75,10 @@ def main():
             learn_gen=create_learner(path='',file='export_5.pkl')
             predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=512)
     else:
-        bw_one("test_img/"+example_dic[example],img_size=256)
+        resize_size = st.slider('resize to ?', 256, 1024, 256, 1)
+        bw_one("test_img/"+example_dic[example],img_size=resize_size)
         st.image("test_img/"+example_dic[example],width=512)
+        
         start_analyse_file = st.button('Analyse example')
         if start_analyse_file== True:
             
