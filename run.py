@@ -66,24 +66,24 @@ def main():
             out.close()
             resize_size = st.slider('resize to ?', 256, 1600, 800, 1)
             bw_one("image/temp.jpg",img_size=resize_size)
-            st.image("image/temp.jpg",width=800)
+            st.image("image/temp.jpg",width=600)
             
 
         start_analyse_file = st.button('Analyse uploaded file')
         if start_analyse_file== True:
             
             learn_gen=create_learner(path='',file='export_5.pkl')
-            predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=800)
+            predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=600)
     else:
         resize_size = st.slider('resize to ?', 256, 1600, 800, 1)
         bw_one("test_img/"+example_dic[example],img_size=resize_size)
-        st.image("test_img/"+example_dic[example],width=800)
+        st.image("test_img/"+example_dic[example],width=600)
         
         start_analyse_file = st.button('Analyse example')
         if start_analyse_file== True:
             
             learn_gen=create_learner(path='',file='export_5.pkl')
-            predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=800)
+            predict_img("image/image_bw/temp_bw.jpg",learn_gen,img_width=600)
 
 st.cache(allow_output_mutation=True)
 def create_learner(path,file):
